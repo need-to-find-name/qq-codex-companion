@@ -1,0 +1,6 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "qq-codex-companion",
+  "version": "0.1.0",
+  "description": "Connect a local Codex workspace to QQ through OneBot 11 and NapCat."
+}

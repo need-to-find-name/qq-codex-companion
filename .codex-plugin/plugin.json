@@ -1,0 +1,6 @@
+{
+  "name": "qq-codex-companion",
+  "version": "0.1.0",
+  "description": "Use a Codex workspace as a natural QQ companion through OneBot 11.",
+  "skills": "./skills/"
+}

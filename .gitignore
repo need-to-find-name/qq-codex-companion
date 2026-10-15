@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Local credentials and runtime state
+config.local.toml
+scripts/runtime.local.psd1
+.env
+data/
+logs/
+workspace/memory/
+workspace/incoming-images/
+workspace/persona/*
+!workspace/persona/.gitkeep
+.codex-remote-attachments/

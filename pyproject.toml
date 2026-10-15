@@ -1,0 +1,22 @@
+[project]
+name = "qq-codex-companion"
+version = "0.1.0"
+description = "A local OneBot 11 bridge that turns a Codex workspace into a QQ companion."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.14"
+dependencies = [
+    "mcp[cli]>=2.3.0",
+    "websockets>=15.0",
+]
+
+[project.scripts]
+qq-codex-companion = "qq_codex_companion.main:main"
+qq-codex-selftest = "qq_codex_companion.selftest:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "qq_codex_companion"

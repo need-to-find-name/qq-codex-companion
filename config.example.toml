@@ -1,0 +1,76 @@
+[onebot]
+host = "127.0.0.1"
+port = 8643
+path = "/ws"
+access_token = "replace-me"
+bot_qq = 1000000001
+allowed_user_ids = [1000000002]
+
+[codex]
+executable = "codex"
+workspace = "./workspace"
+proxy_url = ""
+model = ""
+effort = "medium"
+approval_policy = "never"
+sandbox = "read-only"
+turn_timeout_seconds = 240
+memory_core = "./workspace/memory/ACTIVE_PROFILE.md"
+memory_archive = "./workspace/memory/ARCHIVE.md"
+
+[memory]
+enabled = false
+store_file = "./data/companion_memory.json"
+max_entries = 500
+max_retrieved = 8
+max_prompt_chars = 1800
+
+[reply]
+max_parts = 4
+max_chars_per_part = 160
+min_delay_seconds = 0.7
+max_delay_seconds = 1.4
+debounce_seconds = 0.8
+
+[poke]
+enabled = true
+after_reply_probability = 0.35
+poke_back_probability = 0.70
+cooldown_seconds = 300
+
+[proactive]
+enabled = true
+active_start = "09:30"
+active_end = "23:00"
+min_idle_minutes = 60
+max_idle_minutes = 120
+retry_min_minutes = 35
+retry_max_minutes = 75
+followup_min_minutes = 180
+followup_max_minutes = 300
+send_probability = 0.65
+daily_limit = 3
+image_probability = 0.22
+image_daily_limit = 1
+selfie_probability = 0.35
+selfie_reference = ""
+poke_probability = 0.15
+poll_seconds = 30
+
+[weather]
+enabled = false
+location = ""
+daily_time = "07:30"
+grace_minutes = 180
+proxy_url = ""
+timeout_seconds = 15
+poll_seconds = 30
+
+[weather.location_aliases]
+# "家" = "北京市海淀区"
+# "学校" = "北京市朝阳区"
+
+[runtime]
+state_file = "./data/state.json"
+log_file = "./logs/bridge.log"
+image_dir = "./workspace/incoming-images"
