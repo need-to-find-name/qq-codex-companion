@@ -8,8 +8,16 @@ if (-not (Get-Command uv -ErrorAction SilentlyContinue)) {
 }
 
 if (-not (Test-Path -LiteralPath $ConfigPath)) {
-    Copy-Item -LiteralPath (Join-Path $ProjectRoot 'config.example.toml') -Destination $ConfigPath
-    Write-Output 'Created config.local.toml. Fill in the OneBot token and QQ numbers before starting.'
+    $template = Get-Content -Raw -LiteralPath (Join-Path $ProjectRoot 'config.example.toml')
+    $bytes = New-Object byte[] 32
+    [Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($bytes)
+    $token = [BitConverter]::ToString($bytes).Replace('-', '')
+    $localConfig = $template.Replace(
+        'access_token = "replace-me"',
+        "access_token = `"$token`""
+    )
+    Set-Content -LiteralPath $ConfigPath -Value $localConfig -Encoding utf8 -NoNewline
+    Write-Output 'Created config.local.toml with a random OneBot token. Fill in the QQ numbers before starting.'
 }
 
 if (-not (Test-Path -LiteralPath $RuntimeConfigPath)) {
@@ -25,4 +33,9 @@ finally {
     Pop-Location
 }
 
-Write-Output 'Dependencies are ready. Review config.local.toml, then run: uv run qq-codex-companion'
+Write-Output ''
+Write-Output 'Initialization complete.'
+Write-Output '1. Edit config.local.toml: set the OneBot token, bot QQ, and trusted QQ account.'
+Write-Output '2. Configure the same reverse WebSocket URL and token in NapCat.'
+Write-Output '3. Check the environment: uv run qq-codex-doctor'
+Write-Output '4. Start the bridge: uv run qq-codex-companion'

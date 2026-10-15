@@ -1,0 +1,40 @@
+name: Feature request
+description: 建议一个符合私人陪伴定位的改进
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        项目优先关注 Windows 部署、长期稳定性、自然私人陪伴和隐私控制。群管理、QQ 空间、好友审批和大型 WebUI 暂不属于近期范围。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你遇到的具体问题
+      description: 请描述使用场景，而不只是给出一个功能名称。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你希望的体验
+    validations:
+      required: true
+  - type: dropdown
+    id: direction
+    attributes:
+      label: 它主要改善哪个方向
+      options:
+        - Windows 部署体验
+        - 运行稳定性
+        - 自然陪伴体验
+        - 隐私和权限控制
+        - 开发与测试
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: 可能的风险或取舍
+      description: 例如额外依赖、账号风险、权限扩大、额度消耗或维护成本。

@@ -4,14 +4,30 @@ version = "0.1.0"
 description = "A local OneBot 11 bridge that turns a Codex workspace into a QQ companion."
 readme = "README.md"
 license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.14"
+keywords = ["qq", "onebot", "napcat", "codex", "chatbot", "companion"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Communications :: Chat",
+]
 dependencies = [
     "mcp[cli]>=2.3.0",
     "websockets>=15.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/need-to-find-name/qq-codex-companion"
+Repository = "https://github.com/need-to-find-name/qq-codex-companion"
+Issues = "https://github.com/need-to-find-name/qq-codex-companion/issues"
+Changelog = "https://github.com/need-to-find-name/qq-codex-companion/blob/main/CHANGELOG.md"
+
 [project.scripts]
 qq-codex-companion = "qq_codex_companion.main:main"
+qq-codex-doctor = "qq_codex_companion.doctor:main"
 qq-codex-selftest = "qq_codex_companion.selftest:main"
 
 [build-system]
